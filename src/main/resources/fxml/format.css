@@ -1,0 +1,117 @@
+.anchorPane {
+	-fx-background-color: rgb(25, 25, 112);
+	-fx-pref-width: 1500px;
+	-fx-pref-height: 850px;
+}
+
+.labeltext {
+	-fx-text-fill: white;
+}
+
+.editTextField {
+	-fx-background-color: yellow;
+}
+
+.text-field:focused {
+	-fx-border-style: solid;
+	-fx-border-width: 2px;
+	-fx-border-color: aqua;
+}
+
+.combo-box:focused {
+	-fx-border-style: solid;
+	-fx-border-width: 2px;
+	-fx-border-color: aqua;
+
+}
+
+.button {
+	-fx-background-color: white;
+}
+
+.buttonSave {
+	
+}
+
+.buttonEdit {
+	
+}
+
+.buttonDelete {
+	
+}
+
+.buttonNext {
+	-fx-background-color: red;
+	-fx-text-fill: white;
+}
+
+.buttonNext:hover {
+	-fx-background-color: white;
+	-fx-text-fill: red;
+}
+
+.buttonNext:focused {
+	-fx-background-color: white;
+	-fx-text-fill: red;
+}
+
+.buttonViewAllData {
+	-fx-background-color: green;
+	-fx-text-fill: white;
+}
+
+.buttonViewAllData:hover {
+	-fx-background-color: white;
+	-fx-text-fill: green;
+}
+
+.buttonViewAllData:focused {
+	-fx-background-color: white;
+	-fx-text-fill: green;
+}
+
+.buttonPrevious {
+	-fx-background-color: teal;
+	-fx-text-fill: white;
+}
+
+.buttonPrevious:hover {
+	-fx-background-color: white;
+	-fx-text-fill: teal;
+}
+
+.buttonPrevious:focused {
+	-fx-background-color: white;
+	-fx-text-fill: teal;
+}
+
+.buttonSave:hover {
+	-fx-background-color: green;
+	-fx-text-fill: white;
+}
+
+.buttonSave:focused {
+	-fx-background-color: green;
+	-fx-text-fill: white;
+}
+
+.buttonEdit:hover {
+	-fx-background-color: yellow;
+	-fx-text-fill: black;
+}
+
+.buttonEdit:focused {
+	-fx-background-color: yellow;
+	-fx-text-fill: black;
+}
+
+.buttonDelete:hover {
+	-fx-background-color: red;
+	-fx-text-fill: white;
+}
+
+.buttonDelete:focused {
+	-fx-background-color: red;
+	-fx-text-fill: white;
+}

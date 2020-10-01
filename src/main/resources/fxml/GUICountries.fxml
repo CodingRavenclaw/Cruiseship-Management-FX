@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckMenuItem?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.RadioMenuItem?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="1200.0" styleClass="anchorPane" stylesheets="@format.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.green_pioneer.cruiseship_management.guicontrollers.GUICountriesController">
+   <children>
+      <MenuBar fx:id="mbCruiseManagement" prefHeight="25.0" prefWidth="1200.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+        <menus>
+          <Menu fx:id="mManage" mnemonicParsing="false" text="Manage">
+            <items>
+                  <MenuItem fx:id="miCabins" mnemonicParsing="false" onAction="#switchToCabins" text="Cabins" />
+                  <MenuItem fx:id="miCabinTypes" mnemonicParsing="false" onAction="#switchToCabinTypes" text="Cabintypes" />
+                  <MenuItem fx:id="miCountries" mnemonicParsing="false" onAction="#switchToCountries" text="Countries" />
+                  <MenuItem fx:id="miCrewpersons" mnemonicParsing="false" onAction="#switchToCrewpersons" text="Crewpersons" />
+                  <MenuItem fx:id="miCrewpositions" mnemonicParsing="false" onAction="#switchToCrewPositions" text="Crew positions" />                  
+                  <MenuItem fx:id="miCruises" mnemonicParsing="false" onAction="#switchToCruises" text="Cruises" />
+                  <MenuItem fx:id="miPassengers" mnemonicParsing="false" onAction="#switchToPassengers" text="Passengers" />
+                  <MenuItem fx:id="miPorts" mnemonicParsing="false" onAction="#switchToPorts" text="Ports" />
+            </items>
+          </Menu>
+          <Menu fx:id="mSettings" mnemonicParsing="false" text="Settings">
+               <items>
+                  <Menu fx:id="mLanguage" mnemonicParsing="false" text="Language">
+                     <items>
+                        <RadioMenuItem fx:id="rmiEN" mnemonicParsing="false" onAction="#setLanguageEN" selected="true" text="EN">
+                           <toggleGroup>
+                              <ToggleGroup fx:id="tgLanguage" />
+                           </toggleGroup>
+                        </RadioMenuItem>
+                        <RadioMenuItem fx:id="rmiDE" mnemonicParsing="false" onAction="#setLanguageDE" text="DE" toggleGroup="$tgLanguage" />
+                     </items>
+                  </Menu>
+                  <CheckMenuItem fx:id="cmiEnableEditMode" mnemonicParsing="false" onAction="#enableEditMode" text="Enable edit mode" />
+               </items>
+          </Menu>
+            <Menu fx:id="mSearchData" mnemonicParsing="false" text="Search data">
+              <items>
+                <MenuItem fx:id="miSearchByCode" mnemonicParsing="false" onAction="#searchByCode" text="Search by code" />
+                  <MenuItem fx:id="miSearchByNameEN" mnemonicParsing="false" onAction="#searchByNameEN" text="Search by name (en)" />
+              </items>
+            </Menu>
+        </menus>
+      </MenuBar>
+      <HBox alignment="CENTER" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="20.0">
+         <children>
+            <Label fx:id="lblHeadline" text="Manage countries" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="50.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+      <VBox alignment="CENTER" layoutX="14.0" layoutY="14.0" spacing="30.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+         <children>
+            <TableView fx:id="tblCountries" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#setElementsToSelectedRow" prefHeight="320.0" prefWidth="1127.0">
+               <columns>
+                  <TableColumn fx:id="tcCountryCode" editable="false" prefWidth="63.0" sortable="false" text="code" />
+                  <TableColumn fx:id="tcCountryNameEN" editable="false" prefWidth="734.0" sortable="false" text="en" />
+                  <TableColumn fx:id="tcCountryNameDE" editable="false" prefWidth="681.0" sortable="false" text="de" />
+               </columns></TableView>
+            <HBox alignment="CENTER" spacing="25.0">
+               <children>
+                  <Button fx:id="btnPreviousData" mnemonicParsing="false" onAction="#showPreviousData" prefHeight="30.0" prefWidth="30.0" styleClass="buttonPrevious" text="⮜" />
+                  <Button fx:id="btnShowAllData" mnemonicParsing="false" onAction="#showAllData" prefHeight="30.0" prefWidth="100.0" styleClass="buttonViewAllData" text="Show all data" />
+                  <Button fx:id="btnNextData" mnemonicParsing="false" onAction="#showNextData" prefHeight="30.0" prefWidth="30.0" styleClass="buttonNext" text="⮞" />
+               </children>
+            </HBox>
+            <VBox spacing="20.0">
+               <children>
+                  <HBox alignment="CENTER_LEFT" spacing="50.0">
+                     <children>
+                        <Label fx:id="lblCountryCode" alignment="CENTER_RIGHT" prefHeight="38.0" prefWidth="150.0" text="Code:" textFill="WHITE">
+                           <font>
+                              <Font size="26.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="txtCountryCode" prefHeight="38.0" prefWidth="100.0">
+                           <font>
+                              <Font size="17.0" />
+                           </font>
+                        </TextField>
+                        <TextField fx:id="txtNewCountryCode" prefHeight="38.0" prefWidth="100.0" styleClass="editTextField" visible="false">
+                           <font>
+                              <Font size="17.0" />
+                           </font>
+                        </TextField>
+                     </children>
+                     <cursor>
+                        <Cursor fx:constant="DEFAULT" />
+                     </cursor>
+                  </HBox>
+                  <HBox spacing="50.0">
+                     <children>
+                        <Label fx:id="lblCountryNameEN" alignment="CENTER_RIGHT" prefWidth="150.0" text="Name (EN):" textFill="WHITE">
+                           <font>
+                              <Font size="26.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="txtCountryNameEN" prefHeight="38.0" prefWidth="384.0">
+                           <font>
+                              <Font size="17.0" />
+                           </font>
+                        </TextField>
+                     </children>
+                  </HBox>
+                  <HBox spacing="50.0">
+                     <children>
+                        <Label fx:id="lblCountryNameDE" alignment="CENTER_RIGHT" prefWidth="150.0" text="Name (DE):" textFill="WHITE">
+                           <font>
+                              <Font size="26.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="txtCountryNameDE" prefHeight="38.0" prefWidth="384.0">
+                           <font>
+                              <Font size="17.0" />
+                           </font>
+                        </TextField>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </children>
+      </VBox>
+      <HBox alignment="CENTER" spacing="20.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+         <children>
+            <Button fx:id="btnSave" mnemonicParsing="false" onAction="#saveCountry" prefHeight="30.0" prefWidth="100.0" styleClass="buttonSave" text="Save" />
+            <Button fx:id="btnEdit" disable="true" mnemonicParsing="false" onAction="#editCountry" prefHeight="30.0" prefWidth="100.0" styleClass="buttonEdit" text="Edit" />
+            <Button fx:id="btnDelete" disable="true" mnemonicParsing="false" onAction="#deleteCountry" prefHeight="30.0" prefWidth="100.0" styleClass="buttonDelete" text="Delete" />
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>
